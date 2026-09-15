@@ -76,17 +76,18 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden">
 
-    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-x-full transition-transform duration-300 ease-in-out max-w-md bg-emerald-600 text-white px-5 py-4 rounded-2xl shadow-2xl flex items-center space-x-3">
+    <!-- TOAST BİLDİRİMİ -->
+    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-x-[200%] opacity-0 transition-all duration-300 ease-in-out max-w-md bg-emerald-600 text-white px-5 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 pointer-events-none">
         <i data-lucide="check-circle-2" class="w-6 h-6 flex-shrink-0"></i>
         <div id="toast-message" class="text-sm font-medium">İşlem başarıyla gerçekleştirildi.</div>
     </div>
 
-    <!-- HEADER DÜZELTİLDİ: max-w-7xl içerisindeki yapı flex-wrap ve esnek daralmaya uygun hale getirildi -->
+    <!-- HEADER -->
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 gap-2">
                 
-                <!-- Logo & Brand (Genişlik taşmasını önlemek için min-w-0 ve shrink eklendi) -->
+                <!-- Logo & Brand -->
                 <div class="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-shrink">
                     <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 flex-shrink-0">
                         <i data-lucide="shield-check" class="w-5 h-5 sm:w-6 sm:h-6"></i>
@@ -108,20 +109,20 @@
                     <a href="#kontrol-listesi" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">Güvenlik Kontrolü</a>
                 </nav>
 
-                <!-- Action Controls (Taşmayı önlemek için butonlar optimize edildi) -->
+                <!-- Action Controls -->
                 <div class="flex items-center space-x-1.5 sm:space-x-2.5 flex-shrink-0">
-                    <!-- GitHub Repository Link -->
                     <a href="https://github.com/yahya3886/Guvenli-Okul-Projesi" target="_blank" rel="noopener noreferrer" class="hidden xl:inline-flex items-center px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 transition">
-                        <i data-lucide="github" class="w-4 h-4 mr-1.5"></i> Kaynak Kod
+                        <svg class="w-4 h-4 mr-1.5 fill-current" viewBox="0 0 16 16" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        Kaynak Kod
                     </a>
 
-                    <!-- Emergency Quick Button (Mobilde taşmaması için metin kısaltıldı / ekran boyutuna duyarlı hale getirildi) -->
                     <a href="#acil-destek" class="inline-flex items-center px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-white bg-rose-600 hover:bg-rose-700 active:bg-rose-800 rounded-xl shadow-md shadow-rose-600/20 transition flex-shrink-0">
                         <i data-lucide="phone-call" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i>
                         <span>Acil Hatlar</span>
                     </a>
 
-                    <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="md:hidden p-1.5 sm:p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none flex-shrink-0" aria-label="Menüyü Aç">
                         <i data-lucide="menu" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                     </button>
@@ -136,11 +137,15 @@
             <a href="#okul-basvuru-rehberi" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Resmi Başvuru Rehberi</a>
             <a href="#kontrol-listesi" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Güvenlik Kontrol Listesi</a>
             <a href="https://github.com/yahya3886/Guvenli-Okul-Projesi" target="_blank" rel="noopener noreferrer" class="flex items-center px-3 py-2 rounded-md text-sm font-medium text-brand-600 hover:bg-slate-100">
-                <i data-lucide="github" class="w-4 h-4 mr-2"></i> GitHub Açık Kaynak Kodu
+                <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+                GitHub Açık Kaynak Kodu
             </a>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section class="relative py-12 md:py-20 bg-gradient-to-b from-blue-50/70 via-slate-50 to-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto">
@@ -166,6 +171,7 @@
         </div>
     </section>
 
+    <!-- ACİL DESTEK SECTION -->
     <section id="acil-destek" class="py-12 bg-white border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-8">
@@ -176,7 +182,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Helpline Card 1 -->
+                <!-- Card 1 -->
                 <div class="glass-card rounded-2xl p-6 border border-slate-200/85 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                     <div>
                         <div class="flex items-start justify-between">
@@ -202,7 +208,7 @@
                     </div>
                 </div>
 
-                <!-- Helpline Card 2 -->
+                <!-- Card 2 -->
                 <div class="glass-card rounded-2xl p-6 border border-slate-200/85 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                     <div>
                         <div class="flex items-start justify-between">
@@ -228,7 +234,7 @@
                     </div>
                 </div>
 
-                <!-- Helpline Card 3 -->
+                <!-- Card 3 -->
                 <div class="glass-card rounded-2xl p-6 border border-slate-200/85 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                     <div>
                         <div class="flex items-start justify-between">
@@ -254,6 +260,7 @@
         </div>
     </section>
 
+    <!-- FARKINDALIK SECTION -->
     <section id="farkindalik" class="py-16 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-10">
@@ -263,7 +270,7 @@
                 </p>
             </div>
 
-            <!-- Tab Navigation Buttons -->
+            <!-- Tab Buttons -->
             <div class="flex justify-center mb-8">
                 <div class="inline-flex p-1 bg-slate-200 rounded-xl space-x-1">
                     <button onclick="switchTab('ogrenci')" id="tab-btn-ogrenci" class="tab-btn active px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition bg-white text-slate-900 shadow-sm flex items-center">
@@ -278,7 +285,7 @@
                 </div>
             </div>
 
-            <!-- Tab Content 1: Öğrenci -->
+            <!-- Tab 1: Öğrenci -->
             <div id="tab-ogrenci" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
                     <div class="w-10 h-10 rounded-lg bg-indigo-100 text-brand-600 flex items-center justify-center mb-4">
@@ -318,7 +325,7 @@
                 </div>
             </div>
 
-            <!-- Tab Content 2: Veli -->
+            <!-- Tab 2: Veli -->
             <div id="tab-veli" class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
                     <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center mb-4">
@@ -358,7 +365,7 @@
                 </div>
             </div>
 
-            <!-- Tab Content 3: Öğretmen -->
+            <!-- Tab 3: Öğretmen -->
             <div id="tab-ogretmen" class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
                     <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4">
@@ -400,6 +407,7 @@
         </div>
     </section>
 
+    <!-- OKUL BAŞVURU REHBERİ -->
     <section id="okul-basvuru-rehberi" class="py-16 bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg">
@@ -459,7 +467,7 @@
                     </div>
                 </div>
 
-                <!-- Guidance Note Callout -->
+                <!-- Callout Note -->
                 <div class="p-4 sm:p-5 rounded-2xl bg-blue-50 border border-brand-200 flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
                     <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center flex-shrink-0">
                         <i data-lucide="info" class="w-5 h-5"></i>
@@ -473,6 +481,7 @@
         </div>
     </section>
 
+    <!-- KONTROL LİSTESİ (REVISED MODERN LIGHT DESIGN) -->
     <section id="kontrol-listesi" class="py-16 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center mb-10">
@@ -482,46 +491,46 @@
                 </p>
             </div>
 
-            <div class="max-w-3xl mx-auto bg-gradient-to-br from-slate-900 to-brand-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
-                <div class="flex items-center justify-between mb-4 pb-4 border-b border-white/10">
-                    <h3 class="text-lg font-bold flex items-center">
-                        <i data-lucide="check-square" class="w-5 h-5 text-amber-400 mr-2.5"></i> Güvenlik Farkındalık Göstergeleri
+            <div class="max-w-3xl mx-auto bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-200/50">
+                <div class="flex items-center justify-between mb-4 pb-4 border-b border-slate-100">
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center">
+                        <i data-lucide="check-square" class="w-5 h-5 text-brand-600 mr-2.5"></i> Güvenlik Farkındalık Göstergeleri
                     </h3>
-                    <span id="checklist-counter" class="text-xs font-semibold bg-brand-600/80 px-3 py-1 rounded-full border border-brand-400/30">
+                    <span id="checklist-counter" class="text-xs font-bold bg-brand-50 text-brand-700 px-3 py-1 rounded-full border border-brand-200">
                         0 / 5 Tamamlandı
                     </span>
                 </div>
 
-                <!-- Progress Bar Container -->
-                <div class="w-full bg-slate-800 rounded-full h-2.5 mb-6 overflow-hidden">
-                    <div id="progress-bar" class="bg-gradient-to-r from-amber-400 to-brand-500 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-100 rounded-full h-2.5 mb-6 overflow-hidden">
+                    <div id="progress-bar" class="bg-gradient-to-r from-brand-500 to-indigo-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
                 </div>
 
                 <div class="space-y-3" id="checklist">
-                    <label class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl cursor-pointer hover:bg-white/15 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
-                        <span class="text-xs sm:text-sm text-slate-200">Okulumdaki Rehberlik (PDR) servisinin yerini ve öğretmenimi biliyorum.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
+                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Okulumdaki Rehberlik (PDR) servisinin yerini ve öğretmenimi biliyorum.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl cursor-pointer hover:bg-white/15 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
-                        <span class="text-xs sm:text-sm text-slate-200">Acil durumlarda aranacak hatları (112, ALO 183) telefonuma kaydettim.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
+                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Acil durumlarda aranacak hatları (112, ALO 183) telefonuma kaydettim.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl cursor-pointer hover:bg-white/15 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
-                        <span class="text-xs sm:text-sm text-slate-200">Siber zorbalıkla karşılaştığımda ekran görüntüsü alıp kanıt toplamam gerektiğini biliyorum.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
+                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Siber zorbalıkla karşılaştığımda ekran görüntüsü alıp kanıt toplamam gerektiğini biliyorum.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl cursor-pointer hover:bg-white/15 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
-                        <span class="text-xs sm:text-sm text-slate-200">Okulda veya çevresinde fiziksel bir tehdit hissettiğimde okul idaresine bildirim yapabilirim.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
+                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Okulda veya çevresinde fiziksel bir tehdit hissettiğimde okul idaresine bildirim yapabilirim.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl cursor-pointer hover:bg-white/15 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
-                        <span class="text-xs sm:text-sm text-slate-200">Zorbalığa uğrayan bir arkadaşımı gördüğümde sessiz kalmayıp yetişkinlere iletirim.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
+                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Zorbalığa uğrayan bir arkadaşımı gördüğümde sessiz kalmayıp yetişkinlere iletirim.</span>
                     </label>
                 </div>
 
-                <div class="mt-6 pt-4 border-t border-white/10 text-center">
-                    <p class="text-xs text-slate-300">
+                <div class="mt-6 pt-4 border-t border-slate-100 text-center">
+                    <p class="text-xs text-slate-500">
                         Tüm adımları tamamladıysanız okul güvenliği konusunda yüksek farkındalığa sahipsiniz demektir.
                     </p>
                 </div>
@@ -529,10 +538,10 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-                <!-- Project Info -->
                 <div class="flex items-center space-x-3">
                     <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
                         <i data-lucide="shield-check" class="w-5 h-5"></i>
@@ -543,21 +552,22 @@
                     </div>
                 </div>
 
-                <!-- GitHub Open Source Link & Version Code ONLY -->
                 <div class="flex flex-wrap items-center justify-center gap-4">
                     <a href="https://github.com/yahya3886/Guvenli-Okul-Projesi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition shadow-sm">
-                        <i data-lucide="github" class="w-4 h-4 mr-2 text-brand-400"></i> GitHub Kaynak Kodları
+                        <svg class="w-4 h-4 mr-2 text-brand-400 fill-current" viewBox="0 0 16 16" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        GitHub Kaynak Kodları
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -565,7 +575,6 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Copy Helpline Number to Clipboard
         function copyToClipboard(text, message) {
             const tempInput = document.createElement("input");
             tempInput.value = text;
@@ -576,19 +585,18 @@
             showToast(message);
         }
 
-        // Toast Notification System
         function showToast(message) {
             const toast = document.getElementById('toast');
             const toastMessage = document.getElementById('toast-message');
             toastMessage.innerText = message;
-            toast.classList.remove('translate-x-full');
+            
+            toast.classList.remove('translate-x-[200%]', 'opacity-0', 'pointer-events-none');
             
             setTimeout(() => {
-                toast.classList.add('translate-x-full');
-            }, 3500);
+                toast.classList.add('translate-x-[200%]', 'opacity-0', 'pointer-events-none');
+            }, 3000);
         }
 
-        // Tab Switcher Logic
         function switchTab(tabName) {
             const tabs = ['ogrenci', 'veli', 'ogretmen'];
             tabs.forEach(t => {
@@ -606,7 +614,6 @@
             });
         }
 
-        // Interactive Checklist Counter & Progress Meter
         function updateChecklist() {
             const checkboxes = document.querySelectorAll('.checklist-item');
             let checkedCount = 0;
