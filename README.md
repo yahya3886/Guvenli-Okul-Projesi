@@ -4,7 +4,7 @@
 
 `GüvenliOkul`, eğitim kurumlarında öğrencilerin güvenliğini sağlamak, siber zorbalık ve fiziksel şiddet gibi durumlarda izlenecek resmi başvuru adımlarını netleştirmek ve doğru iletişim kanallarını tek bir merkezde toplamak amacıyla geliştirilmiş web tabanlı bir bilgi rehberidir.
 
-![Sürüm](https://img.shields.io/badge/S%C3%BCr%C3%BCm-v1.2.0-blue.svg)
+[![Sürüm](https://img.shields.io/badge/S%C3%BCr%C3%BCm-v1.2.0-blue.svg)](https://github.com/yahya3886/Guvenli-Okul-Projesi/blob/main/changelog.md)
 ![Lisans](https://img.shields.io/badge/Lisans-MIT-green.svg)
 ![Açık Kaynak](https://img.shields.io/badge/A%C3%A7%C4%B1k%20Kaynak-%E2%9D%A4-red.svg)
 ![Geliştirme](https://img.shields.io/badge/Geli%C5%9Ftirme-Yapay%20Zeka%20Destekli-purple.svg)
@@ -26,8 +26,12 @@ Proje, doğrudan eyleme geçilebilir ve resmi süreç odaklı bir bilgilendirme 
 ## 🚀 Öne Çıkan Özellikler
 
 * **Mobil Uyumlu (Responsive) Tasarım:** Tailwind CSS ile hazırlanmış minimalist ve modern arayüz.
-* **Koyu / Açık Tema Desteği:** Tek tıkla göz yormayan koyu moda (Dark Mode) geçiş.
-* **İnteraktif Kontrol Listesi:** Okul güvenliği için anlık ilerleme takibi sağlayan interaktif maddeler.
+* **🚨 Acil Destek Hatları:** ALO 183, 112 ve Okul PDR servislerine hızlı erişim ve tek tıkla numara kopyalama.
+* **🎯 Rol Bazlı Farkındalık:** Öğrenci, Veli ve Öğretmenlere özel ayrıştırılmış risk ve uyarı işaretleri sekmeleri.
+* **📋 Etkileşimli Kontrol Listesi:** Kullanıcıların okul içi ve kişisel güvenlik durumunu ölçen dinamik JS ilerleme çubuğu.
+* **❓ Sıkça Sorulan Sorular (SSS):** Gizlilik ilkeleri, siber zorbalık delil toplama ve başvuru süreçleri için akordeon SSS bölümü.
+* **🧪 Güvenlik Öz Değerlendirme Testi:** Dijital ve okul içi güvenlik durumunu saniyeler içinde analiz eden interaktif test.
+* **🖨️ Pano Modu (Print CSS):** Okul panolarına, rehberlik servislerine fiziksel baskı alıp asmaya uygun özelleştirilmiş yazdırılabilir görünüm.
 * **Bağımsız ve Tek Dosya:** Harici karmaşık kütüphaneler gerektirmeden `index.html` üzerinden doğrudan çalışabilme.
 
 ---
@@ -45,13 +49,21 @@ Bu projeyi kendi sunucunuzda, yerel bilgisayarınızda veya GitHub Pages üzerin
 ### 1. Depoyu Klonlayın
 
 ```bash
-git clone https://github.com/yahya3886/Guvenli-Okul-Projesi.git
+git clone [https://github.com/yahya3886/Guvenli-Okul-Projesi.git](https://github.com/yahya3886/Guvenli-Okul-Projesi.git)
 cd Guvenli-Okul-Projesi
 ```
 
 ### 2. Çalıştırın
 
 Herhangi bir web sunucusuna ihtiyaç duymadan `index.html` dosyasını tarayıcınızda çift tıklayarak çalıştırabilirsiniz.
+
+---
+
+## 📜 Sürüm Geçmişi (Changelog)
+
+Projenin tüm sürümleri, yapılan yenilikler ve detaylı sürüm notları ayrı bir dosyada takip edilmektedir. 
+
+👉 Sürüm geçmişini incelemek için **[CHANGELOG.md](https://github.com/yahya3886/Guvenli-Okul-Projesi/blob/main/changelog.md)** dosyasına göz atabilirsiniz.
 
 ---
 
