@@ -49,7 +49,7 @@ Bu projeyi kendi sunucunuzda, yerel bilgisayarınızda veya GitHub Pages üzerin
 ### 1. Depoyu Klonlayın
 
 ```bash
-git clone [https://github.com/yahya3886/Guvenli-Okul-Projesi.git](https://github.com/yahya3886/Guvenli-Okul-Projesi.git)
+git clone https://github.com/yahya3886/Guvenli-Okul-Projesi.git
 cd Guvenli-Okul-Projesi
 ```
 
