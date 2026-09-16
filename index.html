@@ -64,12 +64,17 @@
             border-radius: 4px;
         }
         @media print {
-            header, footer, button, .no-print {
+            header, footer, button, .no-print, #mobile-menu, #toast {
                 display: none !important;
             }
             body {
                 background: white !important;
                 color: black !important;
+            }
+            .glass-card, .tab-content {
+                display: block !important;
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
             }
         }
     </style>
@@ -107,6 +112,7 @@
                     <a href="#farkindalik" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">Uyarı İşaretleri</a>
                     <a href="#okul-basvuru-rehberi" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">Resmi Adımlar</a>
                     <a href="#kontrol-listesi" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">Güvenlik Kontrolü</a>
+                    <a href="#sss" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">SSS</a>
                 </nav>
 
                 <!-- Action Controls -->
@@ -136,6 +142,7 @@
             <a href="#farkindalik" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Uyarı İşaretleri ve Riskler</a>
             <a href="#okul-basvuru-rehberi" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Resmi Başvuru Rehberi</a>
             <a href="#kontrol-listesi" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Güvenlik Kontrol Listesi</a>
+            <a href="#sss" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Sıkça Sorulan Sorular</a>
             <a href="https://github.com/yahya3886/Guvenli-Okul-Projesi" target="_blank" rel="noopener noreferrer" class="flex items-center px-3 py-2 rounded-md text-sm font-medium text-brand-600 hover:bg-slate-100">
                 <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 16 16" aria-hidden="true">
                     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
@@ -166,6 +173,9 @@
                     <a href="#okul-basvuru-rehberi" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 transition shadow-sm">
                         <i data-lucide="building-2" class="w-5 h-5 mr-2 text-brand-500"></i> Okula Başvuru Adımları
                     </a>
+                    <button onclick="window.print()" class="no-print inline-flex items-center justify-center px-5 py-3.5 rounded-xl font-semibold text-slate-600 bg-slate-100 border border-slate-200 hover:bg-slate-200 transition shadow-sm">
+                        <i data-lucide="printer" class="w-5 h-5 mr-2"></i> Yazdır / Pano Modu
+                    </button>
                 </div>
             </div>
         </div>
@@ -481,7 +491,7 @@
         </div>
     </section>
 
-    <!-- KONTROL LİSTESİ (REVISED MODERN LIGHT DESIGN) -->
+    <!-- KONTROL LİSTESİ -->
     <section id="kontrol-listesi" class="py-16 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center mb-10">
@@ -538,6 +548,85 @@
         </div>
     </section>
 
+    <!-- SIKÇA SORULAN SORULAR (SSS) & ÖZ DEĞERLENDİRME TESTİ -->
+    <section id="sss" class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <!-- SSS Akordeon -->
+            <div>
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <h2 class="text-2xl font-bold text-slate-900 flex items-center justify-center">
+                        <i data-lucide="help-circle" class="w-6 h-6 text-brand-600 mr-2"></i> Sıkça Sorulan Sorular
+                    </h2>
+                    <p class="text-slate-600 text-sm mt-1">Gizlilik, başvurular ve süreçler hakkında merak edilen hususlar:</p>
+                </div>
+
+                <div class="space-y-3 max-w-3xl mx-auto">
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 transition">
+                        <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between items-center text-sm sm:text-base">
+                            <span>Okul PDR servisine yapılan başvurular gizli tutulur mu?</span>
+                            <span class="text-slate-400 group-open:rotate-180 transition transform">▼</span>
+                        </summary>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200 pt-3">
+                            Evet, rehberlik ve psikolojik danışma hizmetlerinde temel ilke gizliliktir. Danışan öğrenci veya velinin izni olmadan bilgiler paylaşılmaz. Ancak hayati tehlike, istismar veya fiziksel zarar verme riski bulunan durumlarda yasal mevzuat gereği bildirim yapılması zorunludur.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 transition">
+                        <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between items-center text-sm sm:text-base">
+                            <span>Siber zorbalığa uğradığımda mesajları silmeli miyim?</span>
+                            <span class="text-slate-400 group-open:rotate-180 transition transform">▼</span>
+                        </summary>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200 pt-3">
+                            Kesinlikle silmeyin. Tehdit, hakaret veya izinsiz içerik paylaşımlarında tarih ve saati içerecek şekilde ekran görüntülerini (screenshot) alın. Bu kayıtlar idari inceleme ve adli merciler nezdinde geçerli delil niteliği taşır.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 transition">
+                        <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between items-center text-sm sm:text-base">
+                            <span>Anonim olarak ihbarda bulunabilir miyim?</span>
+                            <span class="text-slate-400 group-open:rotate-180 transition transform">▼</span>
+                        </summary>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200 pt-3">
+                            MEBİM (ALO 147 / 444 0 632) veya ALO 183 hatları üzerinden durum bildirimi yaparken bilgilerinizi koruma hakkınız mevcuttur. Okul içi dilekçelerde sürecin takibi için kimlik bilgisi gerekebilir ancak güvenlik tedbirleri idare tarafından sağlanır.
+                        </p>
+                    </details>
+                </div>
+            </div>
+
+            <!-- İnteraktif Öz Değerlendirme Testi -->
+            <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm max-w-3xl mx-auto">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center font-bold">
+                        <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-base">Hızlı Güvenlik Öz Değerlendirmesi</h3>
+                        <p class="text-xs text-slate-500">Mevcut dijital ve okul içi güvenlik durumunu saniyeler içinde analiz et:</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3 text-xs sm:text-sm" id="quiz-container">
+                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-100/60 transition">
+                        <input type="checkbox" class="quiz-check rounded text-brand-600 focus:ring-brand-500 border-slate-300" onchange="checkQuiz()">
+                        <span class="text-slate-700 font-medium">Sosyal medyada tanımadığım kişilerden gelen mesaj/dosya isteklerini kabul etmiyorum.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-100/60 transition">
+                        <input type="checkbox" class="quiz-check rounded text-brand-600 focus:ring-brand-500 border-slate-300" onchange="checkQuiz()">
+                        <span class="text-slate-700 font-medium">Hesap şifrelerimi arkadaşlarımla dahil hiçbir 3. şahısla paylaşmıyorum.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-100/60 transition">
+                        <input type="checkbox" class="quiz-check rounded text-brand-600 focus:ring-brand-500 border-slate-300" onchange="checkQuiz()">
+                        <span class="text-slate-700 font-medium">Okulda veya internette bir tehdit hissettiğimde başvuracağım resmi kanalları biliyorum.</span>
+                    </label>
+                </div>
+
+                <div id="quiz-result" class="mt-4 p-4 rounded-xl text-xs sm:text-sm font-semibold transition-all hidden"></div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -547,8 +636,11 @@
                         <i data-lucide="shield-check" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <span class="font-bold text-white text-base block leading-tight">GüvenliOkul Projesi</span>
-                        <span class="text-xs text-slate-400">Açık Kaynak Okul Güvenliği ve Genç Destek Platformu</span>
+                        <div class="flex items-center space-x-2">
+                            <span class="font-bold text-white text-base leading-tight">GüvenliOkul Projesi</span>
+                            <span class="text-[10px] bg-slate-800 text-brand-400 font-mono px-2 py-0.5 rounded border border-slate-700">v1.2.0</span>
+                        </div>
+                        <span class="text-xs text-slate-400 block mt-0.5">Açık Kaynak Okul Güvenliği ve Genç Destek Platformu</span>
                     </div>
                 </div>
 
@@ -628,6 +720,25 @@
 
             if (checkedCount === total) {
                 showToast("Tebrikler! Güvenlik kontrol listesindeki tüm maddeleri tamamladınız.");
+            }
+        }
+
+        function checkQuiz() {
+            const checkboxes = document.querySelectorAll('.quiz-check');
+            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const resultDiv = document.getElementById('quiz-result');
+
+            resultDiv.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-amber-100', 'text-amber-800', 'bg-rose-100', 'text-rose-800');
+
+            if (checkedCount === 3) {
+                resultDiv.classList.add('bg-emerald-100', 'text-emerald-800');
+                resultDiv.textContent = "Tebrikler! Dijital ve okul içi güvenlik bilinciniz üst seviyede.";
+            } else if (checkedCount >= 1) {
+                resultDiv.classList.add('bg-amber-100', 'text-amber-800');
+                resultDiv.textContent = "Farkındalığınız iyi durumda ancak rehberdeki adımları incelemeniz güvenliğinizi artıracaktır.";
+            } else {
+                resultDiv.classList.add('bg-rose-100', 'text-rose-800');
+                resultDiv.textContent = "Lütfen platformdaki acil durum adımlarını ve siber güvenlik tavsiyelerini dikkatle inceleyin.";
             }
         }
     </script>
