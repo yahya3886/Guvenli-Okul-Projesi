@@ -21,6 +21,7 @@
     
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -53,15 +54,25 @@
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
         }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.92);
+            backdrop-filter: blur(12px);
+        }
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
             background: #f1f5f9;
         }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
         ::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
         }
         @media print {
             header, footer, button, .no-print, #mobile-menu, #toast {
@@ -79,7 +90,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden transition-colors duration-200">
 
     <!-- TOAST BİLDİRİMİ -->
     <div id="toast" class="fixed top-5 right-5 z-50 transform translate-x-[200%] opacity-0 transition-all duration-300 ease-in-out max-w-md bg-emerald-600 text-white px-5 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 pointer-events-none">
@@ -88,7 +99,7 @@
     </div>
 
     <!-- HEADER -->
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 gap-2">
                 
@@ -99,25 +110,31 @@
                     </div>
                     <div class="min-w-0">
                         <div class="flex items-center space-x-1.5 sm:space-x-2">
-                            <span class="font-bold text-base sm:text-lg leading-tight tracking-tight text-slate-900 truncate">GüvenliOkul</span>
-                            <span class="text-[9px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 border border-brand-200 flex-shrink-0">v1.2.0</span>
+                            <span class="font-bold text-base sm:text-lg leading-tight tracking-tight text-slate-900 dark:text-white truncate">GüvenliOkul</span>
+                            <span class="text-[9px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800 flex-shrink-0">v1.3.0</span>
                         </div>
-                        <span class="text-[11px] sm:text-xs text-slate-500 font-normal hidden md:block truncate">Genç Destek & Okul Güvenliği Platformu</span>
+                        <span class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-normal hidden md:block truncate">Genç Destek & Okul Güvenliği Platformu</span>
                     </div>
                 </div>
 
                 <!-- Navigation Links (Desktop) -->
                 <nav class="hidden lg:flex space-x-1 text-sm font-medium flex-shrink-0">
-                    <a href="#acil-destek" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">Acil Destek</a>
-                    <a href="#farkindalik" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">Uyarı İşaretleri</a>
-                    <a href="#okul-basvuru-rehberi" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">Resmi Adımlar</a>
-                    <a href="#kontrol-listesi" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">Güvenlik Kontrolü</a>
-                    <a href="#sss" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition">SSS</a>
+                    <a href="#acil-destek" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Acil Destek</a>
+                    <a href="#farkindalik" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Uyarı İşaretleri</a>
+                    <a href="#okul-basvuru-rehberi" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Resmi Adımlar</a>
+                    <a href="#kontrol-listesi" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Güvenlik Kontrolü</a>
+                    <a href="#sss" class="px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">SSS</a>
                 </nav>
 
                 <!-- Action Controls -->
                 <div class="flex items-center space-x-1.5 sm:space-x-2.5 flex-shrink-0">
-                    <a href="https://github.com/yahya3886/Guvenli-Okul-Projesi" target="_blank" rel="noopener noreferrer" class="hidden xl:inline-flex items-center px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 transition">
+                    <!-- Dark Mode Toggle Button -->
+                    <button id="theme-toggle" onclick="toggleDarkMode()" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700" title="Karanlık/Aydınlık Mod">
+                        <i data-lucide="moon" id="theme-toggle-dark-icon" class="w-4 h-4 hidden"></i>
+                        <i data-lucide="sun" id="theme-toggle-light-icon" class="w-4 h-4 hidden"></i>
+                    </button>
+
+                    <a href="https://github.com/yahya3886/Guvenli-Okul-Projesi" target="_blank" rel="noopener noreferrer" class="hidden xl:inline-flex items-center px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl border border-slate-200 dark:border-slate-700 transition">
                         <svg class="w-4 h-4 mr-1.5 fill-current" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
                         </svg>
@@ -129,7 +146,7 @@
                         <span>Acil Hatlar</span>
                     </a>
 
-                    <button id="mobile-menu-btn" class="md:hidden p-1.5 sm:p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none flex-shrink-0" aria-label="Menüyü Aç">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 sm:p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none flex-shrink-0" aria-label="Menüyü Aç">
                         <i data-lucide="menu" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                     </button>
                 </div>
@@ -137,13 +154,13 @@
         </div>
 
         <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-4 space-y-1">
-            <a href="#acil-destek" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Acil Destek Hatları</a>
-            <a href="#farkindalik" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Uyarı İşaretleri ve Riskler</a>
-            <a href="#okul-basvuru-rehberi" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Resmi Başvuru Rehberi</a>
-            <a href="#kontrol-listesi" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Güvenlik Kontrol Listesi</a>
-            <a href="#sss" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100">Sıkça Sorulan Sorular</a>
-            <a href="https://github.com/yahya3886/Guvenli-Okul-Projesi" target="_blank" rel="noopener noreferrer" class="flex items-center px-3 py-2 rounded-md text-sm font-medium text-brand-600 hover:bg-slate-100">
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-4 space-y-1">
+            <a href="#acil-destek" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Acil Destek Hatları</a>
+            <a href="#farkindalik" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Uyarı İşaretleri ve Riskler</a>
+            <a href="#okul-basvuru-rehberi" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Resmi Başvuru Rehberi</a>
+            <a href="#kontrol-listesi" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Güvenlik Kontrol Listesi</a>
+            <a href="#sss" class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Sıkça Sorulan Sorular</a>
+            <a href="https://github.com/yahya3886/Guvenli-Okul-Projesi" target="_blank" rel="noopener noreferrer" class="flex items-center px-3 py-2 rounded-md text-sm font-medium text-brand-600 dark:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800">
                 <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 16 16" aria-hidden="true">
                     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
                 </svg>
@@ -153,16 +170,16 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative py-12 md:py-20 bg-gradient-to-b from-blue-50/70 via-slate-50 to-white overflow-hidden">
+    <section class="relative py-12 md:py-20 bg-gradient-to-b from-blue-50/70 via-slate-50 to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 overflow-hidden transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto">
-                <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-700 mb-4 border border-brand-200">
-                    <i data-lucide="heart-handshake" class="w-4 h-4 mr-1.5 text-brand-600"></i> Yalnız Değilsiniz, Doğru Adımlarla Güvenliktesiniz
+                <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-100 dark:bg-brand-950/80 text-brand-700 dark:text-brand-300 mb-4 border border-brand-200 dark:border-brand-800">
+                    <i data-lucide="heart-handshake" class="w-4 h-4 mr-1.5 text-brand-600 dark:text-brand-400"></i> Yalnız Değilsiniz, Doğru Adımlarla Güvenliktesiniz
                 </span>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                    Okullarda Güvenlik, Huzur ve <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-500">Doğru Başvuru Rehberliği</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+                    Okullarda Güvenlik, Huzur ve <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-500 dark:from-brand-400 dark:to-indigo-400">Doğru Başvuru Rehberliği</span>
                 </h1>
-                <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+                <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                     Siber zorbalık, akran baskısı, okul içi fiziksel/psikolojik şiddet ve güvenlik tehditleriyle mücadelede öğrenciler, veliler ve öğretmenler için hazırlanan resmi başvuru ve bilgilendirme platformu.
                 </p>
                 
@@ -170,10 +187,10 @@
                     <a href="#acil-destek" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-500/25 transition">
                         <i data-lucide="phone" class="w-5 h-5 mr-2"></i> Resmi Destek Hatları
                     </a>
-                    <a href="#okul-basvuru-rehberi" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 transition shadow-sm">
+                    <a href="#okul-basvuru-rehberi" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition shadow-sm">
                         <i data-lucide="building-2" class="w-5 h-5 mr-2 text-brand-500"></i> Okula Başvuru Adımları
                     </a>
-                    <button onclick="window.print()" class="no-print inline-flex items-center justify-center px-5 py-3.5 rounded-xl font-semibold text-slate-600 bg-slate-100 border border-slate-200 hover:bg-slate-200 transition shadow-sm">
+                    <button onclick="window.print()" class="no-print inline-flex items-center justify-center px-5 py-3.5 rounded-xl font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-800 transition shadow-sm">
                         <i data-lucide="printer" class="w-5 h-5 mr-2"></i> Yazdır / Pano Modu
                     </button>
                 </div>
@@ -182,29 +199,29 @@
     </section>
 
     <!-- ACİL DESTEK SECTION -->
-    <section id="acil-destek" class="py-12 bg-white border-y border-slate-200">
+    <section id="acil-destek" class="py-12 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-8">
-                <h2 class="text-2xl font-bold text-slate-900 flex items-center">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center">
                     <i data-lucide="siren" class="w-6 h-6 text-rose-500 mr-2.5"></i> Acil Yardım ve Destek Hatları
                 </h2>
-                <p class="text-slate-600 text-sm mt-1">Acil durumlarda veya danışmanlık ihtiyacınızda 7/24 ulaşabileceğiniz resmi kanallar:</p>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Acil durumlarda veya danışmanlık ihtiyacınızda 7/24 ulaşabileceğiniz resmi kanallar:</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Card 1 -->
-                <div class="glass-card rounded-2xl p-6 border border-slate-200/85 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
+                <div class="glass-card rounded-2xl p-6 border border-slate-200/85 dark:border-slate-800 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                     <div>
                         <div class="flex items-start justify-between">
-                            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-lg">
+                            <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold text-lg">
                                 183
                             </div>
-                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 font-medium">
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">
                                 7/24 Ücretsiz
                             </span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mt-4">ALO 183 Sosyal Destek Hattı</h3>
-                        <p class="text-slate-600 text-xs mt-2 leading-relaxed">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4">ALO 183 Sosyal Destek Hattı</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-2 leading-relaxed">
                             Aile, kadın, çocuk, engelli ve yaşlılara yönelik psikolojik, sosyal ve hukuki danışmanlık ile destek hattı.
                         </p>
                     </div>
@@ -212,25 +229,25 @@
                         <a href="tel:183" class="flex-1 py-2.5 px-3 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center transition">
                             <i data-lucide="phone" class="w-4 h-4 mr-1.5"></i> Hemen Ara (183)
                         </a>
-                        <button onclick="copyToClipboard('183', 'ALO 183 numarası kopyalandı!')" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition" title="Numarayı Kopyala">
+                        <button onclick="copyToClipboard('183', 'ALO 183 numarası kopyalandı!')" class="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl transition" title="Numarayı Kopyala">
                             <i data-lucide="copy" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="glass-card rounded-2xl p-6 border border-slate-200/85 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
+                <div class="glass-card rounded-2xl p-6 border border-slate-200/85 dark:border-slate-800 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                     <div>
                         <div class="flex items-start justify-between">
-                            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-lg">
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">
                                 112
                             </div>
-                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 font-medium">
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">
                                 Acil Durum
                             </span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mt-4">112 Acil Çağrı Merkezi</h3>
-                        <p class="text-slate-600 text-xs mt-2 leading-relaxed">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4">112 Acil Çağrı Merkezi</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-2 leading-relaxed">
                             Fiziksel tehlike, okulda ve çevresinde güvenlik tehdidi, şiddet vakaları ve tıbbi aciliyetlerde Emniyet/Jandarma müdahalesi için.
                         </p>
                     </div>
@@ -238,25 +255,25 @@
                         <a href="tel:112" class="flex-1 py-2.5 px-3 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center transition">
                             <i data-lucide="phone" class="w-4 h-4 mr-1.5"></i> Hemen Ara (112)
                         </a>
-                        <button onclick="copyToClipboard('112', '112 numarası kopyalandı!')" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition" title="Numarayı Kopyala">
+                        <button onclick="copyToClipboard('112', '112 numarası kopyalandı!')" class="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl transition" title="Numarayı Kopyala">
                             <i data-lucide="copy" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="glass-card rounded-2xl p-6 border border-slate-200/85 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
+                <div class="glass-card rounded-2xl p-6 border border-slate-200/85 dark:border-slate-800 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                     <div>
                         <div class="flex items-start justify-between">
-                            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-brand-600 flex items-center justify-center font-bold text-lg">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-lg">
                                 PDR
                             </div>
-                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 font-medium">
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">
                                 Okul İçi
                             </span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mt-4">Okul Rehberlik Servisi (PDR)</h3>
-                        <p class="text-slate-600 text-xs mt-2 leading-relaxed">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4">Okul Rehberlik Servisi (PDR)</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-2 leading-relaxed">
                             Okulunuzdaki Psikolojik Danışma ve Rehberlik servisi; akran zorbalığı, kaygı ve okul içi sorunlarda ilk resmi başvuru adresidir.
                         </p>
                     </div>
@@ -271,25 +288,25 @@
     </section>
 
     <!-- FARKINDALIK SECTION -->
-    <section id="farkindalik" class="py-16 bg-slate-50">
+    <section id="farkindalik" class="py-16 bg-slate-50 dark:bg-slate-950 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-10">
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Uyarı İşaretleri ve Risk Faktörleri</h2>
-                <p class="text-slate-600 text-sm mt-2">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Uyarı İşaretleri ve Risk Faktörleri</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
                     Tehlike veya zorbalık belirtilerini önceden fark etmek erken müdahale sağlar. Kimin için bilgi almak istediğinizi seçin:
                 </p>
             </div>
 
             <!-- Tab Buttons -->
             <div class="flex justify-center mb-8">
-                <div class="inline-flex p-1 bg-slate-200 rounded-xl space-x-1">
-                    <button onclick="switchTab('ogrenci')" id="tab-btn-ogrenci" class="tab-btn active px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition bg-white text-slate-900 shadow-sm flex items-center">
+                <div class="inline-flex p-1 bg-slate-200 dark:bg-slate-800 rounded-xl space-x-1">
+                    <button onclick="switchTab('ogrenci')" id="tab-btn-ogrenci" class="tab-btn active px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm flex items-center">
                         <i data-lucide="user" class="w-4 h-4 mr-1.5"></i> Öğrenciler İçin
                     </button>
-                    <button onclick="switchTab('veli')" id="tab-btn-veli" class="tab-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition flex items-center">
+                    <button onclick="switchTab('veli')" id="tab-btn-veli" class="tab-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center">
                         <i data-lucide="users" class="w-4 h-4 mr-1.5"></i> Veliler / Aileler İçin
                     </button>
-                    <button onclick="switchTab('ogretmen')" id="tab-btn-ogretmen" class="tab-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition flex items-center">
+                    <button onclick="switchTab('ogretmen')" id="tab-btn-ogretmen" class="tab-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center">
                         <i data-lucide="graduation-cap" class="w-4 h-4 mr-1.5"></i> Öğretmenler İçin
                     </button>
                 </div>
@@ -297,36 +314,36 @@
 
             <!-- Tab 1: Öğrenci -->
             <div id="tab-ogrenci" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-indigo-100 text-brand-600 flex items-center justify-center mb-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4">
                         <i data-lucide="user-x" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-base mb-2">Akran Zorbalığı Belirtileri</h3>
-                    <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base mb-2">Akran Zorbalığı Belirtileri</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Okula gitmek istememe, nedensiz fiziksel ağrı şikayetleri.</li>
                         <li>Eşyaların kaybolması, zarar görmesi veya harçlık eksilmesi.</li>
                         <li>Arkadaş grubundan aniden izole olma veya dışlanma.</li>
                         <li>Sınıfta devamlı alay edilme veya aşağılanma korkusu.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mb-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
                         <i data-lucide="smartphone" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-base mb-2">Siber Zorbalık Riski</h3>
-                    <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base mb-2">Siber Zorbalık Riski</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Sosyal medya bildirimlerinden sonra belirgin gerginlik veya huzursuzluk.</li>
                         <li>İzinsiz fotoğraf paylaşımı veya sahte hesaplarla hedef alınma.</li>
                         <li>Çevrim içi oyun/mesaj gruplarından kasten çıkarılma.</li>
                         <li>Telefon ve bilgisayar ekranını sürekli saklama eğilimi.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center mb-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-4">
                         <i data-lucide="brain-circuit" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-base mb-2">Ruh Sağlığı İşaretleri</h3>
-                    <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base mb-2">Ruh Sağlığı İşaretleri</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Uyku bozuklukları, kabuslar veya aşırı yorgunluk.</li>
                         <li>Çaresizlik, değersizlik ve aniden içe kapanma duygusu.</li>
                         <li>Sevilen hobilerden ve sosyal ortamlardan tamamen uzaklaşma.</li>
@@ -337,36 +354,36 @@
 
             <!-- Tab 2: Veli -->
             <div id="tab-veli" class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center mb-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
                         <i data-lucide="home" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-base mb-2">Evdeki Davranış Değişimleri</h3>
-                    <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base mb-2">Evdeki Davranış Değişimleri</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
                         <li>İştahsızlık veya takıntılı beslenme alışkanlıkları.</li>
                         <li>Kıyafetlerde yırtık veya vücutta açıklanamayan morluk/çizikler.</li>
                         <li>Ders başarısında belirgin ve ani düşüşler.</li>
                         <li>Aile üyeleriyle iletişimi kesip odaya kapanma.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center mb-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
                         <i data-lucide="shield-alert" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-base mb-2">Dijital Takip & Riskler</h3>
-                    <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base mb-2">Dijital Takip & Riskler</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Gece geç saatlere kadar kesintisiz ekran kullanımı.</li>
                         <li>Yabancı kişilerle şüpheli çevrim içi temaslar.</li>
                         <li>Yanına birisi yaklaştığında ekranı hızla gizleme.</li>
                         <li>Tehdit veya şantaj içeren mesajlara maruz kalma ihtimali.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-teal-100 text-teal-600 flex items-center justify-center mb-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-4">
                         <i data-lucide="message-circle" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-base mb-2">Nasıl Yaklaşılmalı?</h3>
-                    <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base mb-2">Nasıl Yaklaşılmalı?</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Sorgulayıcı değil, destekleyici ve sakin bir dil kullanın.</li>
                         <li>"Geçer bu durumlar" diyerek çocuğun hislerini küçümsemeyin.</li>
                         <li>Gerektiğinde vakit kaybetmeden Okul PDR servisi ile iletişime geçin.</li>
@@ -377,36 +394,36 @@
 
             <!-- Tab 3: Öğretmen -->
             <div id="tab-ogretmen" class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
                         <i data-lucide="school" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-base mb-2">Sınıf İçi Gözlemler</h3>
-                    <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base mb-2">Sınıf İçi Gözlemler</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Grup çalışmalarında sürekli dışarıda bırakılan öğrenciler.</li>
                         <li>Teneffüslerde sınıftan çıkmaktan veya bahçeye gitmekten çekinme.</li>
                         <li>Ders sırasında takınılan aşırı çekingen veya saldırgan tavırlar.</li>
                         <li>Sıklaşan devamsızlıklar ve derse odaklanma zorluğu.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center mb-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-4">
                         <i data-lucide="alert-triangle" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-base mb-2">Kritik Uyarı Sinyalleri</h3>
-                    <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base mb-2">Kritik Uyarı Sinyalleri</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Defter veya çizimlerde şiddet içeriğinin öne çıkması.</li>
                         <li>Kesici/tehlikeli nesnelere ilgi bildirimleri veya bulundurma şüphesi.</li>
                         <li>Akranlarına yönelik tehditkar davranışlar veya çeteleşme.</li>
                         <li>Kendine zarar verme söylemleri veya işaretleri.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/85 dark:border-slate-800 shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-4">
                         <i data-lucide="file-check" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-base mb-2">Müdahale Protokolü</h3>
-                    <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base mb-2">Müdahale Protokolü</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
                         <li>Olayı veya şüpheyi anında Okul PDR servisine ve İdareye bildirin.</li>
                         <li>Tarafların gözlemlerini tarafsızca tutanak altına alın.</li>
                         <li>Aileler ile koordineli ve çözüme odaklı iletişim kurun.</li>
@@ -418,72 +435,72 @@
     </section>
 
     <!-- OKUL BAŞVURU REHBERİ -->
-    <section id="okul-basvuru-rehberi" class="py-16 bg-white">
+    <section id="okul-basvuru-rehberi" class="py-16 bg-white dark:bg-slate-900 transition-colors">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg">
+            <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-lg">
                 <div class="text-center max-w-2xl mx-auto mb-10">
-                    <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-3">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto mb-3">
                         <i data-lucide="building" class="w-6 h-6"></i>
                     </div>
-                    <h2 class="text-2xl font-bold text-slate-900">Resmi Başvuru ve Aksiyon Adımları</h2>
-                    <p class="text-xs sm:text-sm text-slate-600 mt-2">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Resmi Başvuru ve Aksiyon Adımları</h2>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2">
                         Her türlü şiddet, akran zorbalığı veya güvenlik riski durumunda <strong>doğrudan okul yönetimine ve yetkili makamlara başvurulması</strong> idari ve hukuki bakımdan en doğru çözümdür.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                     <!-- Step 1 -->
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative">
+                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative">
                         <span class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm mb-4">1</span>
-                        <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-2 flex items-center">
                             <i data-lucide="message-square" class="w-4 h-4 text-brand-500 mr-2"></i> PDR Servisi
                         </h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                             Öğrenci veya veli ilk olarak okul psikolojik danışmanına başvurur. Görüşmeler gizlilik ilkesi doğrultusunda yürütülür ve izleme süreci başlatılır.
                         </p>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative">
+                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative">
                         <span class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm mb-4">2</span>
-                        <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-2 flex items-center">
                             <i data-lucide="shield-check" class="w-4 h-4 text-brand-500 mr-2"></i> Okul İdaresi
                         </h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                             Fiziksel tehdit veya ısrarlı zorbalık durumlarında okul idaresine yazılı dilekçe verilir. Okul Disiplin Kurulu süreci devreye sokar.
                         </p>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative">
+                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative">
                         <span class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm mb-4">3</span>
-                        <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-2 flex items-center">
                             <i data-lucide="camera" class="w-4 h-4 text-brand-500 mr-2"></i> Dijital Delil
                         </h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                             Siber zorbalıkta mesajlar silinmeden ekran görüntüsü (screenshot), profil bağlantıları ve tarih/saat bilgileri kayıt altına alınmalıdır.
                         </p>
                     </div>
 
                     <!-- Step 4 -->
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative">
+                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative">
                         <span class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm mb-4">4</span>
-                        <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-2 flex items-center">
                             <i data-lucide="landmark" class="w-4 h-4 text-brand-500 mr-2"></i> MEM & Kolluk
                         </h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                             Okul seviyesinde çözülemeyen durumlarda İl/İlçe MEM, MEBİM veya Emniyet Çocuk Şube / Siber Suçlarla Mücadele'ye başvurulur.
                         </p>
                     </div>
                 </div>
 
                 <!-- Callout Note -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-blue-50 border border-brand-200 flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                <div class="p-4 sm:p-5 rounded-2xl bg-blue-50 dark:bg-slate-900 border border-brand-200 dark:border-brand-900/60 flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
                     <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center flex-shrink-0">
                         <i data-lucide="info" class="w-5 h-5"></i>
                     </div>
-                    <div class="text-xs text-slate-700 leading-relaxed">
-                        <strong class="font-bold text-slate-900 block mb-0.5">Önemli Tavsiye:</strong>
+                    <div class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                        <strong class="font-bold text-slate-900 dark:text-white block mb-0.5">Önemli Tavsiye:</strong>
                         Başvurularda olaya dair tarih, saat, yer ve varsa mesaj/sosyal medya ekran görüntülerini derleyerek sunmanız inceleme sürecinin hızlanmasını sağlar. Sessiz kalmayın, durumu güvenebileceğiniz bir eğitimciye iletin.
                     </div>
                 </div>
@@ -492,55 +509,55 @@
     </section>
 
     <!-- KONTROL LİSTESİ -->
-    <section id="kontrol-listesi" class="py-16 bg-slate-50 border-t border-slate-200">
+    <section id="kontrol-listesi" class="py-16 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center mb-10">
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Okul Güvenliği Kontrol Listesi</h2>
-                <p class="text-slate-600 text-sm mt-2">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Okul Güvenliği Kontrol Listesi</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
                     Kendi okul ortamınızı ve kişisel farkındalığınızı değerlendirmek için aşağıdaki adımları işaretleyin:
                 </p>
             </div>
 
-            <div class="max-w-3xl mx-auto bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-200/50">
-                <div class="flex items-center justify-between mb-4 pb-4 border-b border-slate-100">
-                    <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center">
-                        <i data-lucide="check-square" class="w-5 h-5 text-brand-600 mr-2.5"></i> Güvenlik Farkındalık Göstergeleri
+            <div class="max-w-3xl mx-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-200/50 dark:shadow-none">
+                <div class="flex items-center justify-between mb-4 pb-4 border-b border-slate-100 dark:border-slate-800">
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center">
+                        <i data-lucide="check-square" class="w-5 h-5 text-brand-600 dark:text-brand-400 mr-2.5"></i> Güvenlik Farkındalık Göstergeleri
                     </h3>
-                    <span id="checklist-counter" class="text-xs font-bold bg-brand-50 text-brand-700 px-3 py-1 rounded-full border border-brand-200">
+                    <span id="checklist-counter" class="text-xs font-bold bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 px-3 py-1 rounded-full border border-brand-200 dark:border-brand-800">
                         0 / 5 Tamamlandı
                     </span>
                 </div>
 
                 <!-- Progress Bar -->
-                <div class="w-full bg-slate-100 rounded-full h-2.5 mb-6 overflow-hidden">
+                <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2.5 mb-6 overflow-hidden">
                     <div id="progress-bar" class="bg-gradient-to-r from-brand-500 to-indigo-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
                 </div>
 
                 <div class="space-y-3" id="checklist">
-                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
-                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Okulumdaki Rehberlik (PDR) servisinin yerini ve öğretmenimi biliyorum.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 dark:hover:bg-slate-800/50 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300 dark:border-slate-700 dark:bg-slate-900">
+                        <span class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium">Okulumdaki Rehberlik (PDR) servisinin yerini ve öğretmenimi biliyorum.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
-                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Acil durumlarda aranacak hatları (112, ALO 183) telefonuma kaydettim.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 dark:hover:bg-slate-800/50 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300 dark:border-slate-700 dark:bg-slate-900">
+                        <span class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium">Acil durumlarda aranacak hatları (112, ALO 183) telefonuma kaydettim.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
-                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Siber zorbalıkla karşılaştığımda ekran görüntüsü alıp kanıt toplamam gerektiğini biliyorum.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 dark:hover:bg-slate-800/50 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300 dark:border-slate-700 dark:bg-slate-900">
+                        <span class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium">Siber zorbalıkla karşılaştığımda ekran görüntüsü alıp kanıt toplamam gerektiğini biliyorum.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
-                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Okulda veya çevresinde fiziksel bir tehdit hissettiğimde okul idaresine bildirim yapabilirim.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 dark:hover:bg-slate-800/50 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300 dark:border-slate-700 dark:bg-slate-900">
+                        <span class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium">Okulda veya çevresinde fiziksel bir tehdit hissettiğimde okul idaresine bildirim yapabilirim.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 transition select-none">
-                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300">
-                        <span class="text-xs sm:text-sm text-slate-700 font-medium">Zorbalığa uğrayan bir arkadaşımı gördüğümde sessiz kalmayıp yetişkinlere iletirim.</span>
+                    <label class="flex items-center space-x-3 bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 p-3.5 sm:p-4 rounded-xl cursor-pointer hover:bg-slate-100/80 dark:hover:bg-slate-800/50 transition select-none">
+                        <input type="checkbox" onchange="updateChecklist()" class="checklist-item w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300 dark:border-slate-700 dark:bg-slate-900">
+                        <span class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium">Zorbalığa uğrayan bir arkadaşımı gördüğümde sessiz kalmayıp yetişkinlere iletirim.</span>
                     </label>
                 </div>
 
-                <div class="mt-6 pt-4 border-t border-slate-100 text-center">
-                    <p class="text-xs text-slate-500">
+                <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-center">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
                         Tüm adımları tamamladıysanız okul güvenliği konusunda yüksek farkındalığa sahipsiniz demektir.
                     </p>
                 </div>
@@ -549,45 +566,45 @@
     </section>
 
     <!-- SIKÇA SORULAN SORULAR (SSS) & ÖZ DEĞERLENDİRME TESTİ -->
-    <section id="sss" class="py-16 bg-white border-t border-slate-200">
+    <section id="sss" class="py-16 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
             <!-- SSS Akordeon -->
             <div>
                 <div class="text-center max-w-2xl mx-auto mb-8">
-                    <h2 class="text-2xl font-bold text-slate-900 flex items-center justify-center">
-                        <i data-lucide="help-circle" class="w-6 h-6 text-brand-600 mr-2"></i> Sıkça Sorulan Sorular
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center justify-center">
+                        <i data-lucide="help-circle" class="w-6 h-6 text-brand-600 dark:text-brand-400 mr-2"></i> Sıkça Sorulan Sorular
                     </h2>
-                    <p class="text-slate-600 text-sm mt-1">Gizlilik, başvurular ve süreçler hakkında merak edilen hususlar:</p>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Gizlilik, başvurular ve süreçler hakkında merak edilen hususlar:</p>
                 </div>
 
                 <div class="space-y-3 max-w-3xl mx-auto">
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 transition">
-                        <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between items-center text-sm sm:text-base">
+                    <details class="group bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 transition">
+                        <summary class="font-semibold text-slate-800 dark:text-slate-200 cursor-pointer list-none flex justify-between items-center text-sm sm:text-base">
                             <span>Okul PDR servisine yapılan başvurular gizli tutulur mu?</span>
                             <span class="text-slate-400 group-open:rotate-180 transition transform">▼</span>
                         </summary>
-                        <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200 pt-3">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-3 leading-relaxed border-t border-slate-200 dark:border-slate-800 pt-3">
                             Evet, rehberlik ve psikolojik danışma hizmetlerinde temel ilke gizliliktir. Danışan öğrenci veya velinin izni olmadan bilgiler paylaşılmaz. Ancak hayati tehlike, istismar veya fiziksel zarar verme riski bulunan durumlarda yasal mevzuat gereği bildirim yapılması zorunludur.
                         </p>
                     </details>
 
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 transition">
-                        <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between items-center text-sm sm:text-base">
+                    <details class="group bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 transition">
+                        <summary class="font-semibold text-slate-800 dark:text-slate-200 cursor-pointer list-none flex justify-between items-center text-sm sm:text-base">
                             <span>Siber zorbalığa uğradığımda mesajları silmeli miyim?</span>
                             <span class="text-slate-400 group-open:rotate-180 transition transform">▼</span>
                         </summary>
-                        <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200 pt-3">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-3 leading-relaxed border-t border-slate-200 dark:border-slate-800 pt-3">
                             Kesinlikle silmeyin. Tehdit, hakaret veya izinsiz içerik paylaşımlarında tarih ve saati içerecek şekilde ekran görüntülerini (screenshot) alın. Bu kayıtlar idari inceleme ve adli merciler nezdinde geçerli delil niteliği taşır.
                         </p>
                     </details>
 
-                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 transition">
-                        <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between items-center text-sm sm:text-base">
+                    <details class="group bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 transition">
+                        <summary class="font-semibold text-slate-800 dark:text-slate-200 cursor-pointer list-none flex justify-between items-center text-sm sm:text-base">
                             <span>Anonim olarak ihbarda bulunabilir miyim?</span>
                             <span class="text-slate-400 group-open:rotate-180 transition transform">▼</span>
                         </summary>
-                        <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-200 pt-3">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-3 leading-relaxed border-t border-slate-200 dark:border-slate-800 pt-3">
                             MEBİM (ALO 147 / 444 0 632) veya ALO 183 hatları üzerinden durum bildirimi yaparken bilgilerinizi koruma hakkınız mevcuttur. Okul içi dilekçelerde sürecin takibi için kimlik bilgisi gerekebilir ancak güvenlik tedbirleri idare tarafından sağlanır.
                         </p>
                     </details>
@@ -595,29 +612,29 @@
             </div>
 
             <!-- İnteraktif Öz Değerlendirme Testi -->
-            <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm max-w-3xl mx-auto">
+            <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm max-w-3xl mx-auto">
                 <div class="flex items-center space-x-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center font-bold">
+                    <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold">
                         <i data-lucide="shield-alert" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <h3 class="font-bold text-slate-900 text-base">Hızlı Güvenlik Öz Değerlendirmesi</h3>
-                        <p class="text-xs text-slate-500">Mevcut dijital ve okul içi güvenlik durumunu saniyeler içinde analiz et:</p>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base">Hızlı Güvenlik Öz Değerlendirmesi</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Mevcut dijital ve okul içi güvenlik durumunu saniyeler içinde analiz et:</p>
                     </div>
                 </div>
 
                 <div class="space-y-3 text-xs sm:text-sm" id="quiz-container">
-                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-100/60 transition">
-                        <input type="checkbox" class="quiz-check rounded text-brand-600 focus:ring-brand-500 border-slate-300" onchange="checkQuiz()">
-                        <span class="text-slate-700 font-medium">Sosyal medyada tanımadığım kişilerden gelen mesaj/dosya isteklerini kabul etmiyorum.</span>
+                    <label class="flex items-center space-x-3 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition">
+                        <input type="checkbox" class="quiz-check rounded text-brand-600 focus:ring-brand-500 border-slate-300 dark:border-slate-700 dark:bg-slate-950" onchange="checkQuiz()">
+                        <span class="text-slate-700 dark:text-slate-300 font-medium">Sosyal medyada tanımadığım kişilerden gelen mesaj/dosya isteklerini kabul etmiyorum.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-100/60 transition">
-                        <input type="checkbox" class="quiz-check rounded text-brand-600 focus:ring-brand-500 border-slate-300" onchange="checkQuiz()">
-                        <span class="text-slate-700 font-medium">Hesap şifrelerimi arkadaşlarımla dahil hiçbir 3. şahısla paylaşmıyorum.</span>
+                    <label class="flex items-center space-x-3 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition">
+                        <input type="checkbox" class="quiz-check rounded text-brand-600 focus:ring-brand-500 border-slate-300 dark:border-slate-700 dark:bg-slate-950" onchange="checkQuiz()">
+                        <span class="text-slate-700 dark:text-slate-300 font-medium">Hesap şifrelerimi arkadaşlarımla dahil hiçbir 3. şahısla paylaşmıyorum.</span>
                     </label>
-                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-100/60 transition">
-                        <input type="checkbox" class="quiz-check rounded text-brand-600 focus:ring-brand-500 border-slate-300" onchange="checkQuiz()">
-                        <span class="text-slate-700 font-medium">Okulda veya internette bir tehdit hissettiğimde başvuracağım resmi kanalları biliyorum.</span>
+                    <label class="flex items-center space-x-3 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition">
+                        <input type="checkbox" class="quiz-check rounded text-brand-600 focus:ring-brand-500 border-slate-300 dark:border-slate-700 dark:bg-slate-950" onchange="checkQuiz()">
+                        <span class="text-slate-700 dark:text-slate-300 font-medium">Okulda veya internette bir tehdit hissettiğimde başvuracağım resmi kanalları biliyorum.</span>
                     </label>
                 </div>
 
@@ -638,7 +655,7 @@
                     <div>
                         <div class="flex items-center space-x-2">
                             <span class="font-bold text-white text-base leading-tight">GüvenliOkul Projesi</span>
-                            <span class="text-[10px] bg-slate-800 text-brand-400 font-mono px-2 py-0.5 rounded border border-slate-700">v1.2.0</span>
+                            <span class="text-[10px] bg-slate-800 text-brand-400 font-mono px-2 py-0.5 rounded border border-slate-700">v1.3.0</span>
                         </div>
                         <span class="text-xs text-slate-400 block mt-0.5">Açık Kaynak Okul Güvenliği ve Genç Destek Platformu</span>
                     </div>
@@ -660,6 +677,32 @@
     <script>
         lucide.createIcons();
 
+        // Dark Mode Yönetimi
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        function toggleDarkMode() {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        }
+
+        // Mobil Menü Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -667,14 +710,23 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        function copyToClipboard(text, message) {
-            const tempInput = document.createElement("input");
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-            showToast(message);
+        // Modern Clipboard API Kullanımı
+        async function copyToClipboard(text, message) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                } else {
+                    const tempInput = document.createElement("input");
+                    tempInput.value = text;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(tempInput);
+                }
+                showToast(message);
+            } catch (err) {
+                showToast("Kopyalama başarısız oldu.");
+            }
         }
 
         function showToast(message) {
@@ -695,12 +747,12 @@
                 const btn = document.getElementById(`tab-btn-${t}`);
                 const content = document.getElementById(`tab-${t}`);
                 if (t === tabName) {
-                    btn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
-                    btn.classList.remove('text-slate-600');
+                    btn.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-900', 'dark:text-white', 'shadow-sm');
+                    btn.classList.remove('text-slate-600', 'dark:text-slate-400');
                     content.classList.remove('hidden');
                 } else {
-                    btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
-                    btn.classList.add('text-slate-600');
+                    btn.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-900', 'dark:text-white', 'shadow-sm');
+                    btn.classList.add('text-slate-600', 'dark:text-slate-400');
                     content.classList.add('hidden');
                 }
             });
@@ -728,16 +780,16 @@
             const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
             const resultDiv = document.getElementById('quiz-result');
 
-            resultDiv.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-amber-100', 'text-amber-800', 'bg-rose-100', 'text-rose-800');
+            resultDiv.classList.remove('hidden', 'bg-emerald-100', 'dark:bg-emerald-950/80', 'text-emerald-800', 'dark:text-emerald-300', 'bg-amber-100', 'dark:bg-amber-950/80', 'text-amber-800', 'dark:text-amber-300', 'bg-rose-100', 'dark:bg-rose-950/80', 'text-rose-800', 'dark:text-rose-300');
 
             if (checkedCount === 3) {
-                resultDiv.classList.add('bg-emerald-100', 'text-emerald-800');
+                resultDiv.classList.add('bg-emerald-100', 'dark:bg-emerald-950/80', 'text-emerald-800', 'dark:text-emerald-300');
                 resultDiv.textContent = "Tebrikler! Dijital ve okul içi güvenlik bilinciniz üst seviyede.";
             } else if (checkedCount >= 1) {
-                resultDiv.classList.add('bg-amber-100', 'text-amber-800');
+                resultDiv.classList.add('bg-amber-100', 'dark:bg-amber-950/80', 'text-amber-800', 'dark:text-amber-300');
                 resultDiv.textContent = "Farkındalığınız iyi durumda ancak rehberdeki adımları incelemeniz güvenliğinizi artıracaktır.";
             } else {
-                resultDiv.classList.add('bg-rose-100', 'text-rose-800');
+                resultDiv.classList.add('bg-rose-100', 'dark:bg-rose-950/80', 'text-rose-800', 'dark:text-rose-300');
                 resultDiv.textContent = "Lütfen platformdaki acil durum adımlarını ve siber güvenlik tavsiyelerini dikkatle inceleyin.";
             }
         }
