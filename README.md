@@ -4,10 +4,10 @@
 
 `GüvenliOkul`, eğitim kurumlarında öğrencilerin güvenliğini sağlamak, siber zorbalık ve fiziksel şiddet gibi durumlarda izlenecek resmi başvuru adımlarını netleştirmek ve doğru iletişim kanallarını tek bir merkezde toplamak amacıyla geliştirilmiş web tabanlı bir bilgi rehberidir.
 
-[![Sürüm](https://img.shields.io/badge/S%C3%BCr%C3%BCm-v1.2.0-blue.svg)](https://github.com/yahya3886/Guvenli-Okul-Projesi/blob/main/changelog.md)
+[![Sürüm](https://img.shields.io/badge/S%C3%BCr%C3%BCm-v1.3.0-blue.svg)](https://github.com/yahya3886/Guvenli-Okul-Projesi/blob/main/changelog.md)
 ![Lisans](https://img.shields.io/badge/Lisans-MIT-green.svg)
 ![Açık Kaynak](https://img.shields.io/badge/A%C3%A7%C4%B1k%20Kaynak-%E2%9D%A4-red.svg)
-![Geliştirme](https://img.shields.io/badge/Geli%C5%9Ftirme-Yapay%20Zeka%20Destekli-purple.svg)
+![Geliştirme](https://img.shields.io/badge/Geli%C3%9Ftirme-Yapay%20Zeka%20Destekli-purple.svg)
 
 ---
 
